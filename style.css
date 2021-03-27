@@ -1,5 +1,42 @@
 /* style général du jeu */
 
-.fontfam{
+.fontFam{
   font-family: 'Lato', sans-serif;
+}
+
+.fontBold{
+  font-weight: bold;
+}
+
+.sizeGame{
+  width: 100vw;
+  height: 100vh;
+}
+
+.sizePlayer{
+    height: 37vh;   
+  }
+
+.borderLine{
+  border: 1px solid black;
+}
+
+.sizeHeader{
+  height: 5vh;
+}
+
+.bgGrey{
+  background-color: gray;
+}
+ 
+
+/* passage à la taille small, chaque zone de chaque player prend une majeure partie de la hauteur */
+@media screen and (min-width:576px){
+  
+  .sizePlayer{
+    height: 75vh;   
+  }
+
+
+
 }

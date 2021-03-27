@@ -28,15 +28,28 @@
     <link rel="stylesheet" href="./style.css" />
     <title>Jeu de dé</title>
   </head>
-  <body >
-    <ion-app >
-      <ion-header >
-        <ion-toolbar class="fontfam">
-          <ion-title>New Game</ion-title>
+  <body>
+    <ion-app class="sizeGame">
+      <ion-header>
+        <ion-toolbar class="fontFam">
+          <ion-title class="ion-text-center fontBold" >New Game</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-content class="ion-padding fontfam"">
-        <h1>Main Content</h1>
+      <ion-content class="ion-padding fontFam fontBold">
+        <ion-grid>
+          <ion-row>
+            <ion-col class="borderLine sizePlayer" size="12" size-sm>
+              <div >
+                1 of 2
+              </div>
+            </ion-col>
+            <ion-col class="borderLine sizePlayer" size="12" size-sm>
+              <div>
+                2 of 2
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-content>
     </ion-app>
     <script src="main.js"></script>
