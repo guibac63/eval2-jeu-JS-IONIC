@@ -32,26 +32,37 @@
     <ion-app class="sizeGame">
       <ion-header>
         <ion-toolbar class="fontFam">
-          <ion-title class="ion-text-center fontBold" >New Game</ion-title>
+          <ion-title class="fontBold fontFam"
+            ><div class="startGame">
+              <button>
+                <ion-icon name="play-circle-outline"></ion-icon>
+              </button>
+              <span>New Game</span> 
+            </div>
+          </ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content class="ion-padding fontFam fontBold">
         <ion-grid>
           <ion-row>
             <ion-col class="borderLine sizePlayer" size="12" size-sm>
-              <div >
-                1 of 2
-              </div>
+              <div>1 of 2</div>
             </ion-col>
             <ion-col class="borderLine sizePlayer" size="12" size-sm>
-              <div>
-                2 of 2
-              </div>
+              <div>2 of 2</div>
             </ion-col>
           </ion-row>
         </ion-grid>
       </ion-content>
     </ion-app>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/ionicons@4.7.4/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://cdn.jsdelivr.net/npm/ionicons@4.7.4/dist/ionicons/ionicons.js"
+    ></script>
     <script src="main.js"></script>
   </body>
 </html>

@@ -1,7 +1,12 @@
 /* style général du jeu */
 
+html{
+  font-size: 16px;
+}
+
 .fontFam{
   font-family: 'Lato', sans-serif;
+  font-size: 1.5rem;
 }
 
 .fontBold{
@@ -29,6 +34,24 @@
   background-color: gray;
 }
  
+ion-icon{
+  font-size: 3rem;
+  color: rgb(12, 128, 236);
+}
+
+button{
+  background-color: white;
+  outline: none;
+}
+
+/* style du bloc new game */
+.startGame{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 
 /* passage à la taille small, chaque zone de chaque player prend une majeure partie de la hauteur */
 @media screen and (min-width:576px){
