@@ -34,10 +34,10 @@
         <ion-toolbar class="fontFam">
           <ion-title class="fontBold fontFam"
             ><div class="startGame">
-              <button>
-                <ion-icon name="play-circle-outline"></ion-icon>
+              <button class="btnPad">
+                <ion-icon class="game" name="play-circle-outline"></ion-icon>
               </button>
-              <span>New Game</span> 
+              <span>New Game</span>
             </div>
           </ion-title>
         </ion-toolbar>
@@ -45,11 +45,35 @@
       <ion-content class="ion-padding fontFam fontBold">
         <ion-grid>
           <ion-row>
-            <ion-col class="borderLine sizePlayer" size="12" size-sm>
-              <div>1 of 2</div>
+            <ion-col
+              class="borderLine sizePlayer elementPlayer"
+              size="12"
+              size-sm
+            >
+              <div class="sectionPlayer">
+                <div class="startGame">
+                  <ion-icon class="playerIcon" name="person-circle-outline"></ion-icon>
+                  <h2 class="fontBold fontPlayer">Player 1</h2>
+                </div>
+              </div>
+              <div class="sectionPlayer"></div>
+              <div class="sectionPlayer"></div>
+              <div class="sectionPlayer"></div>
             </ion-col>
-            <ion-col class="borderLine sizePlayer" size="12" size-sm>
-              <div>2 of 2</div>
+            <ion-col
+              class="borderLine sizePlayer elementPlayer"
+              size="12"
+              size-sm
+            >
+              <div class="sectionPlayer">
+                <div class="startGame">
+                  <ion-icon class="playerIcon" name="person-circle-outline"></ion-icon>
+                  <h2 class="fontBold fontPlayer">Player 2</h2>
+                </div>
+              </div>
+              <div class="sectionPlayer"></div>
+              <div class="sectionPlayer"></div>
+              <div class="sectionPlayer"></div>
             </ion-col>
           </ion-row>
         </ion-grid>

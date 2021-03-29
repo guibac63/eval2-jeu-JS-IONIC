@@ -4,9 +4,18 @@ html{
   font-size: 16px;
 }
 
+.btnPad{
+  padding:0;
+}
+
+
 .fontFam{
   font-family: 'Lato', sans-serif;
-  font-size: 1.5rem;
+  font-size: 2.2rem;
+}
+
+.fontPlayer{
+  font-size: 2rem;
 }
 
 .fontBold{
@@ -26,6 +35,11 @@ html{
   border: 1px solid black;
 }
 
+.sectionPlayer{
+  height: 25%;
+  width: 100%;
+}
+
 .sizeHeader{
   height: 5vh;
 }
@@ -34,9 +48,15 @@ html{
   background-color: gray;
 }
  
-ion-icon{
+ion-icon.game{
   font-size: 3rem;
   color: rgb(12, 128, 236);
+}
+
+ion-icon.playerIcon{
+  font-size: 2.7rem;
+  color: rgb(12, 128, 236);
+  padding-top: 0.4rem;
 }
 
 button{
@@ -49,6 +69,11 @@ button{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.elementPlayer{
+  display: flex;
+  flex-direction: column;
 }
 
 
