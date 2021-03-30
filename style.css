@@ -1,92 +1,118 @@
 /* style général du jeu */
 
-html{
+html {
   font-size: 11px;
 }
 
-.btnPad{
-  padding:0;
+.fontFam {
+  font-family: "Lato", sans-serif;
+  font-size: 2.7rem;
 }
 
-.fontFam{
-  font-family: 'Lato', sans-serif;
-  font-size: 2.2rem;
-}
-
-.fontPlayer{
-  font-size: 2rem;
-}
-
-.fontBold{
+.fontBold {
   font-weight: bold;
 }
 
-.sizeGame{
+.sizeGame {
   width: 100vw;
   height: 100vh;
 }
 
-.sizePlayer{
-    height: 37vh;   
-  }
+.sizePlayer {
+  height: 37vh;
+}
 
-.borderLine{
+.btnPad {
+  padding: 0;
+  margin-top: 0.3rem;
+}
+
+.borderLine {
   border: 1px solid black;
 }
 
-.sectionPlayer{
-  height: 25%;
+.sectionPlayer {
+  height: 20%;
   width: 100%;
 }
 
-.sizeHeader{
+.sizeHeader {
   height: 5vh;
 }
 
-.bgGrey{
+.bgGrey {
   background-color: gray;
 }
- 
-ion-icon.game{
-  font-size: 3rem;
-  color: rgb(12, 128, 236);
-}
 
-ion-icon.playerIcon{
-  font-size: 2.7rem;
-  padding-top: 0.6rem;
-}
-
-button{
+button {
   background-color: white;
   outline: none;
 }
 
 /* style du bloc new game */
-.startGame{
+.startGame {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.elementPlayer{
-  display: flex;
-  flex-direction: column;
+ion-icon.game {
+  font-size: 3rem;
+  color: rgb(12, 128, 236);
+}
+
+/* style du bloc player */
+.fontPlayer {
+  font-size: 2.5rem;
+}
+
+.fontPlay, .currentFont{
+  font-size: 1.5rem;
+}
+
+.gameScoreFont, .gameWin{
+  font-size: 1.9rem;
 }
 
 
 
+.currentZone{
+  background-color: rgb(12, 128, 236);
+  color: white;
+  padding:0px 10px;
+  border-radius: 12px;
+}
+
+.elementPlayer {
+  display: flex;
+  flex-direction: column;
+}
+
+ion-icon.playerIcon {
+  font-size: 2.7rem;
+  padding-top: 0.6rem;
+}
+
+
+.currentScore{
+  font-weight: bolder;
+  font-size: 2.5rem;
+}
+
+.gameScore{
+  margin-left: 10px;
+  color: rgb(43, 226, 141);
+  font-weight: bolder;
+  font-size: 3.5rem;
+}
+
 /* passage à la taille small, chaque zone de chaque player prend une majeure partie de la hauteur */
-@media screen and (min-width:576px){
-  
-  html{
+@media screen and (min-width: 576px) {
+  html {
     font-size: 15px;
   }
 
-  .sizePlayer{
-    height: 75vh;   
+  .sizePlayer {
+    height: 75vh;
   }
-
-
-
 }
