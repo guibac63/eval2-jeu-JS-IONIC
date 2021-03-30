@@ -1,13 +1,12 @@
 /* style général du jeu */
 
 html{
-  font-size: 16px;
+  font-size: 11px;
 }
 
 .btnPad{
   padding:0;
 }
-
 
 .fontFam{
   font-family: 'Lato', sans-serif;
@@ -55,8 +54,7 @@ ion-icon.game{
 
 ion-icon.playerIcon{
   font-size: 2.7rem;
-  color: rgb(12, 128, 236);
-  padding-top: 0.4rem;
+  padding-top: 0.6rem;
 }
 
 button{
@@ -81,6 +79,10 @@ button{
 /* passage à la taille small, chaque zone de chaque player prend une majeure partie de la hauteur */
 @media screen and (min-width:576px){
   
+  html{
+    font-size: 15px;
+  }
+
   .sizePlayer{
     height: 75vh;   
   }
