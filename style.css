@@ -122,6 +122,14 @@ ion-icon.playerIcon {
     margin-left: 0.5rem; 
 }
 
+.playerTurn{
+  border-radius: 50%;
+  background-color: rgb(43, 226, 141);
+  width: 1rem;
+  height: 1rem;
+  margin-left: 1rem;
+}
+
 /* passage à la taille small, chaque zone de chaque player prend une majeure partie de la hauteur */
 @media screen and (min-width: 568px) {
   .sizePlayer {
