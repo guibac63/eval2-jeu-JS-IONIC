@@ -34,7 +34,7 @@
         <ion-toolbar class="fontFam">
           <ion-title class="fontBold fontFam"
             ><div class="startGame">
-              <button class="btnPad">
+              <button class="btnPad" onclick="newgame()">
                 <ion-icon class="game" name="add-circle-outline"></ion-icon>
               </button>
               <span>NEW GAME</span>
@@ -43,7 +43,7 @@
         </ion-toolbar>
       </ion-header>
       <ion-content class="ion-padding fontFam fontBold">
-        <ion-grid>
+        <ion-grid class="invisible">
           <ion-row>
             <ion-col
               class="sizePlayer elementPlayer"
@@ -74,22 +74,21 @@
               </div>
               <div class="sectionPlayer currentFont startGame">
                 <div class="currentZone startGame">
-
                   <span >CURRENT SCORE : </span>
-                  <span class="currentScore currentZone" id="currentscoreplayerone">0</span>
+                  <span class="currentScore" id="currentscoreplayerone">0</span>
                 </div>
               </div>
               <div class="sectionPlayer startGame gameScoreFont">
                 <span>GAME SCORE : </span>
                 <span class="gameScore" id="currentscoreplayerone">0</span>
               </div>
-              <div class="sectionPlayer startGame gameWin">
+              <div class="sectionPlayer startGame gameWin invisible">
                 <span>YOU WIN !</span>
                 <div class="imageCup"><img src="./images/cup-2015198_640.png" alt="image d'un trophée"></div>
               </div>
             </ion-col>
             <ion-col
-              class="elementPlayer"
+              class="sizePlayer elementPlayer"
               size="12"
               size-sm
             >
@@ -118,16 +117,15 @@
               </div>
               <div class="sectionPlayer startGame currentFont">
                 <div class="currentZone startGame">
-
                   <span >CURRENT SCORE : </span>
-                  <span class="currentScore currentZone" id="currentscoreplayerone">0</span>
+                  <span class="currentScore" id="currentscoreplayerone">0</span>
                 </div>
               </div>
               <div class="sectionPlayer startGame gameScoreFont">
                 <span>GAME SCORE : </span>
                 <span class="gameScore" id="currentscoreplayerone">0</span>
               </div>
-              <div class="sectionPlayer startGame gameWin">
+              <div class="sectionPlayer startGame gameWin invisible">
                 <span>YOU WIN !</span>
                 <div class="imageCup"><img src="./images/cup-2015198_640.png" alt="image d'un trophée"></div>
               </div>

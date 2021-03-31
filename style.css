@@ -19,7 +19,7 @@ html {
 }
 
 .sizePlayer {
-  height: 45vh;
+  height: 43vh;
 }
 
 .startGame {
@@ -53,6 +53,10 @@ html {
 button {
   background-color: white;
   outline: none;
+}
+
+.invisible{
+  display: none;
 }
 
 /* style du bloc new game */
@@ -102,6 +106,7 @@ ion-icon.playerIcon {
   font-weight: bolder;
   font-size: 2.5rem;
   padding-bottom: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .gameScore {
