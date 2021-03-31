@@ -1,7 +1,7 @@
 /* style général du jeu */
 
 html {
-  font-size: 11px;
+  font-size: 10px;
 }
 
 .fontFam {
@@ -20,6 +20,12 @@ html {
 
 .sizePlayer {
   height: 37vh;
+}
+
+.startGame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btnPad {
@@ -50,11 +56,6 @@ button {
 }
 
 /* style du bloc new game */
-.startGame {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 ion-icon.game {
   font-size: 3rem;
@@ -66,20 +67,24 @@ ion-icon.game {
   font-size: 2.5rem;
 }
 
-.fontPlay, .currentFont{
+.fontPlay,
+.currentFont {
   font-size: 1.5rem;
 }
 
-.gameScoreFont, .gameWin{
+.marginPlayer {
+  margin-left: 1rem;
+}
+
+.gameScoreFont
+{
   font-size: 1.9rem;
 }
 
-
-
-.currentZone{
+.currentZone {
   background-color: rgb(12, 128, 236);
   color: white;
-  padding:0px 10px;
+  padding: 0 10px;
   border-radius: 12px;
 }
 
@@ -93,26 +98,50 @@ ion-icon.playerIcon {
   padding-top: 0.6rem;
 }
 
-
-.currentScore{
+.currentScore {
   font-weight: bolder;
   font-size: 2.5rem;
+  padding-bottom: 0.5rem;
 }
 
-.gameScore{
+.gameScore {
   margin-left: 10px;
   color: rgb(43, 226, 141);
   font-weight: bolder;
   font-size: 3.5rem;
+  padding-bottom: 0.9rem;
+}
+
+.gameWin{
+  font-size: 1.9rem;
+  font-style:italic;
+}
+
+.imageCup {
+    width: 30px; 
+    margin-left: 0.5rem; 
 }
 
 /* passage à la taille small, chaque zone de chaque player prend une majeure partie de la hauteur */
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 568px) {
+  .sizePlayer {
+    height: 75vh;
+  }
+
+}
+
+/* passage à la taille small, chaque zone de chaque player prend une majeure partie de la hauteur */
+@media screen and (min-width: 1024px) {
   html {
     font-size: 15px;
   }
 
-  .sizePlayer {
-    height: 75vh;
+  canvas {
+    height: 100px;
+    width: 100px;
+  }
+
+   .imageCup {
+    width: 60px;
   }
 }
