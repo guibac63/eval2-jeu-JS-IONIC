@@ -19,7 +19,7 @@ html {
 }
 
 .sizePlayer {
-  height: 37vh;
+  height: 45vh;
 }
 
 .startGame {
@@ -34,7 +34,7 @@ html {
 }
 
 .borderLine {
-  border: 1px solid black;
+  border: 3px solid rgb(12, 128, 236);
 }
 
 .sectionPlayer {
