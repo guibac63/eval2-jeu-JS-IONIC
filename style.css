@@ -72,7 +72,8 @@ ion-icon.game {
 }
 
 .fontPlay,
-.currentFont {
+.currentFont,
+.fontSave {
   font-size: 1.5rem;
 }
 
@@ -88,7 +89,7 @@ ion-icon.game {
 .currentZone {
   background-color: rgb(12, 128, 236);
   color: white;
-  padding: 0 3px;
+  padding: 0 7px;
   border-radius: 12px;
 }
 
