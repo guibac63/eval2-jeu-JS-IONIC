@@ -1,7 +1,7 @@
 /* style général du jeu */
 
 html {
-  font-size: 10px;
+  font-size: 8px;
 }
 
 .fontFam {
@@ -38,7 +38,7 @@ html {
 }
 
 .sectionPlayer {
-  height: 20%;
+  height: 15%;
   width: 100%;
 }
 
@@ -88,7 +88,7 @@ ion-icon.game {
 .currentZone {
   background-color: rgb(12, 128, 236);
   color: white;
-  padding: 0 10px;
+  padding: 0 3px;
   border-radius: 12px;
 }
 
@@ -98,8 +98,8 @@ ion-icon.game {
 }
 
 ion-icon.playerIcon {
-  font-size: 2.7rem;
-  padding-top: 0.6rem;
+  font-size: 3.2rem;
+  padding-top: 0.7rem;
 }
 
 .currentScore {
@@ -146,7 +146,7 @@ ion-icon.playerIcon {
 /* passage à la taille small, chaque zone de chaque player prend une majeure partie de la hauteur */
 @media screen and (min-width: 1024px) {
   html {
-    font-size: 15px;
+    font-size: 13px;
   }
 
   canvas {
