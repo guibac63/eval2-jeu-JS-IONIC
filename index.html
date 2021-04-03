@@ -60,9 +60,9 @@
                   <div class="playerTurn"></div>
                 </div>
               </div>
-              <div class="sectionPlayer startGame">
+              <div class="sectionPlay startGame">
                 <div class="startGame fontPlay">
-                  <button class="btnPad">
+                  <button id="one" class="btnPad" onclick="play(id)">
                     <ion-icon
                       class="game"
                       name="play-circle-outline"
@@ -70,7 +70,7 @@
                   </button>
                   <span>PLAY</span>
                 </div>
-                <div class="marginPlayer"><canvas width="40" height="40"></canvas></div>
+                <div class="marginPlayer"><canvas class="canvasDice" id="drawone" width="101" height="101"></canvas></div>
               </div>
               <div class="sectionPlayer currentFont startGame">
                 <div class="currentZone startGame">
@@ -111,9 +111,9 @@
                 </div>
               </div>
               </div>
-              <div class="sectionPlayer startGame">
+              <div class="sectionPlay startGame">
                 <div class="startGame fontPlay">
-                  <button class="btnPad">
+                  <button id ="two" class="btnPad" onclick="play(id)">
                     <ion-icon
                       class="game"
                       name="play-circle-outline"
@@ -121,7 +121,7 @@
                   </button>
                   <span>PLAY</span>
                 </div>
-                <div class="marginPlayer"><canvas width="50" height="50"></canvas></div>
+                <div class="marginPlayer"><canvas class="canvasDice" id="drawtwo" width="101" height="101"></canvas></div>
               </div>
               <div class="sectionPlayer startGame currentFont">
                 <div class="currentZone startGame">

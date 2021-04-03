@@ -1,7 +1,7 @@
 /* style général du jeu */
 
 html {
-  font-size: 8px;
+  font-size: 7px;
 }
 
 .fontFam {
@@ -19,7 +19,7 @@ html {
 }
 
 .sizePlayer {
-  height: 43vh;
+  height: 45vh;
 }
 
 .startGame {
@@ -35,11 +35,16 @@ html {
 
 .borderLine {
   border: 3px solid rgb(12, 128, 236);
+  border-radius: 0.5rem;
 }
 
 .sectionPlayer {
   height: 15%;
   width: 100%;
+}
+
+.sectionPlay {
+  height: 20%;
 }
 
 .sizeHeader {
@@ -55,7 +60,7 @@ button {
   outline: none;
 }
 
-.invisible{
+.invisible {
   display: none;
 }
 
@@ -81,8 +86,7 @@ ion-icon.game {
   margin-left: 1rem;
 }
 
-.gameScoreFont
-{
+.gameScoreFont {
   font-size: 1.9rem;
 }
 
@@ -118,17 +122,17 @@ ion-icon.playerIcon {
   padding-bottom: 0.9rem;
 }
 
-.gameWin{
+.gameWin {
   font-size: 1.9rem;
-  font-style:italic;
+  font-style: italic;
 }
 
 .imageCup {
-    width: 30px; 
-    margin-left: 0.5rem; 
+  width: 30px;
+  margin-left: 0.5rem;
 }
 
-.playerTurn{
+.playerTurn {
   border-radius: 50%;
   background-color: rgb(43, 226, 141);
   width: 1rem;
@@ -136,12 +140,25 @@ ion-icon.playerIcon {
   margin-left: 1rem;
 }
 
+/* configuration du canvas avec dessin du dé pour adaptation mobile du grand format -sens de grand vers petit */
+@media screen and (max-width: 1024px) {
+  canvas {
+    height: 41px;
+    width: 41px;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .sizePlayer {
+    height: 50vh;
+  }
+}
+
 /* passage à la taille small, chaque zone de chaque player prend une majeure partie de la hauteur */
 @media screen and (min-width: 568px) {
   .sizePlayer {
-    height: 75vh;
+    height: 78vh;
   }
-
 }
 
 /* passage à la taille small, chaque zone de chaque player prend une majeure partie de la hauteur */
@@ -150,12 +167,7 @@ ion-icon.playerIcon {
     font-size: 13px;
   }
 
-  canvas {
-    height: 100px;
-    width: 100px;
-  }
-
-   .imageCup {
+  .imageCup {
     width: 60px;
   }
 }
