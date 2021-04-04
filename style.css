@@ -148,6 +148,13 @@ ion-icon.playerIcon {
   }
 }
 
+@media screen and ( min-width: 1025px) and ( max-width: 1400px) {
+  canvas {
+    height: 71px;
+    width: 71px;
+  }
+}
+
 @media screen and (max-height: 600px) {
   .sizePlayer {
     height: 50vh;
@@ -170,4 +177,5 @@ ion-icon.playerIcon {
   .imageCup {
     width: 60px;
   }
+
 }

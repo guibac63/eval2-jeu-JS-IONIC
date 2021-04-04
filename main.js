@@ -23,7 +23,7 @@ tabstyleElements.push(
 function newgame() {
   // reinitialize scores to 0
   countertozero();
-  //affiche les éléments du jeu
+  //display game elements
   appGame.classList.remove("invisible");
 
   //random definition of first turn player
@@ -32,6 +32,7 @@ function newgame() {
 
   //change style for the player zone who is allowed to play
   applystylenewgame(starterPlayer, secondPlayer, tabstyleElements);
+
 }
 
 // on buttonclick "play" launch round for the selected player
@@ -62,6 +63,12 @@ function applystylenewgame(first, second, tabElement) {
       elt[first].classList.add("invisible");
     }
   });
+
+  // clear the dice draw for the two players
+  for(let i = 0;i< canvasDraw.length;i++){
+    const ctx = canvasDraw[i].getContext("2d")
+    ctx.clearRect(0, 0, 102, 102);
+  }
 }
 
 function drawingDice(value, idplayer) {
