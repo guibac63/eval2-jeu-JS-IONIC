@@ -42,6 +42,16 @@ function play(idActivePlayer) {
   console.log(randomDice);
   //draw the dice of the active player with his value
   drawingDice(randomDice, idActivePlayer);
+  //if diceplay = 1 change round
+  if(randomDice === 1){
+    countertozero()
+    if(idActivePlayer.includes("one")){
+      setTimeout(()=>applystylenewgame(0, 1, tabstyleElements),400);
+    }else{
+      setTimeout(()=>applystylenewgame(1, 0, tabstyleElements),400);
+    }
+  }
+
 }
 
 function countertozero() {
@@ -87,11 +97,6 @@ function drawingDice(value, idplayer) {
   let space = 25;
 
   switch (value) {
-    //delete the dice if the function is called with 0
-    case 0:
-      ctx.clearRect(1, 1, 99, 99);
-      break;
-
     case 1:
       ctx.beginPath();
       ctx.fillStyle = "rgb(12, 128, 236)";
