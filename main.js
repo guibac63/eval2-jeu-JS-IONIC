@@ -5,6 +5,7 @@ const roundPatch = document.getElementsByClassName("playerTurn");
 const startGame = document.getElementsByClassName("fontPlay");
 const savePoints = document.getElementsByClassName("fontSave");
 const currentScoreZone = document.getElementsByClassName("currentZone");
+const currentScore = document.getElementsByClassName("currentScore");
 const canvasDraw = document.getElementsByClassName("canvasDice");
 //variables in a table
 const tabstyleElements = [];
@@ -32,7 +33,6 @@ function newgame() {
 
   //change style for the player zone who is allowed to play
   applystylenewgame(starterPlayer, secondPlayer, tabstyleElements);
-
 }
 
 // on buttonclick "play" launch round for the selected player
@@ -43,15 +43,21 @@ function play(idActivePlayer) {
   //draw the dice of the active player with his value
   drawingDice(randomDice, idActivePlayer);
   //if diceplay = 1 change round
-  if(randomDice === 1){
-    countertozero()
-    if(idActivePlayer.includes("one")){
-      setTimeout(()=>applystylenewgame(0, 1, tabstyleElements),400);
-    }else{
-      setTimeout(()=>applystylenewgame(1, 0, tabstyleElements),400);
+  if (randomDice === 1) {
+    countertozero();
+    if (idActivePlayer.includes("one")) {
+      setTimeout(() => applystylenewgame(0, 1, tabstyleElements), 400);
+    } else {
+      setTimeout(() => applystylenewgame(1, 0, tabstyleElements), 400);
+    }
+    // else add the value of the dice in the current score of the player
+  } else {
+    if (idActivePlayer.includes("one")) {
+      displayscore(0, randomDice, 1);
+    } else {
+      displayscore(1, randomDice, 1);
     }
   }
-
 }
 
 function countertozero() {
@@ -75,9 +81,26 @@ function applystylenewgame(first, second, tabElement) {
   });
 
   // clear the dice draw for the two players
-  for(let i = 0;i< canvasDraw.length;i++){
-    const ctx = canvasDraw[i].getContext("2d")
+  for (let i = 0; i < canvasDraw.length; i++) {
+    const ctx = canvasDraw[i].getContext("2d");
     ctx.clearRect(0, 0, 102, 102);
+  }
+}
+
+function displayscore(activePlayer, randomScore, wayToCount) {
+  const limitScore = randomScore;
+  if (wayToCount > 0 && limitScore > 0) {
+    setTimeout(() => {
+      currentScore[activePlayer].innerText =
+        parseInt(currentScore[activePlayer].innerText) + 1;
+      displayscore(activePlayer, randomScore - 1, wayToCount);
+    }, 100);
+  } else if (wayToCount < 0 && randomScore > 0) {
+    setTimeout(() => {
+      currentScore[activePlayer].innerText =
+        parseInt(currentScore[activePlayer].innerText) - 1;
+      displayscore(activePlayer, randomScore - 1, wayToCount);
+    }, 100);
   }
 }
 
@@ -162,7 +185,7 @@ function drawingDice(value, idplayer) {
         ctx.fill();
         if (i < 2) x += space;
         if (i === 2) {
-          y += space *2;
+          y += space * 2;
           x = 25;
         }
         if (i > 2) x += space;
