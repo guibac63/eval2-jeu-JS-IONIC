@@ -24,7 +24,7 @@ tabstyleElements.push(
 // adjustment when the game starts
 function newGame() {
   // reinitialize scores to 0
-  counterToZero();
+  counterToZero("start");
   //display game elements
   appGame.classList.remove("invisible");
 
@@ -44,7 +44,8 @@ function play(idActivePlayer) {
   drawingDice(randomDice, idActivePlayer);
   //if diceplay = 1 change round
   if (randomDice === 1) {
-    counterToZero();
+    //ATTENTION///CREER FONCTION QUI MET A 0 UNIQUEMENT LE CURRENT SCORE DES DEUX COTES
+    counterToZero("play");
     if (idActivePlayer.includes("one")) {
       setTimeout(() => applyStyleNewgame(0, 1, tabstyleElements), 400);
     } else {
@@ -60,11 +61,12 @@ function play(idActivePlayer) {
   }
 }
 
-function counterToZero() {
-  const score = document.querySelectorAll(".gameScore,.currentScore");
-  score.forEach((elt) => {
-    elt.innerHTML = "0";
-  });
+function counterToZero(type) {
+  const score =
+    type === "start"
+      ? document.querySelectorAll(".gameScore,.currentScore")
+      : document.querySelectorAll(".currentScore");
+  score.forEach((elt) => (elt.innerHTML = "0"));
 }
 
 function applyStyleNewgame(first, second, tabElement) {
@@ -190,7 +192,7 @@ function saveScore(idActivePlayer) {
     const currentScoreValue = parseInt(currentScore[0].innerText);
     displayScore(0, currentScoreValue, -1, currentScore);
     displayScore(0, currentScoreValue, 1, globalScore);
-  }else{
+  } else {
     const currentScoreValue = parseInt(currentScore[1].innerText);
     displayScore(1, currentScoreValue, -1, currentScore);
     displayScore(1, currentScoreValue, 1, globalScore);
