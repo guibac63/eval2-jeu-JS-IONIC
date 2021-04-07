@@ -34,7 +34,7 @@
         <ion-toolbar class="fontFam">
           <ion-title class="fontBold fontFam"
             ><div class="startGame">
-              <button class="btnPad" onclick="newgame()">
+              <button class="btnPad" onclick="newGame()">
                 <ion-icon class="game" name="add-circle-outline"></ion-icon>
               </button>
               <span>NEW GAME</span>
@@ -80,15 +80,15 @@
               </div>
               <div class="sectionPlayer startGame">
                 <div class="startGame fontSave">
-                  <button class="btnPad">
+                  <button id="saveone" class="btnPad" onclick="saveScore(id)">
                     <ion-icon class="game" name="arrow-down-circle-outline"></ion-icon>
                   </button>
-                  <span>SAVE SCORE</span>
+                  <span id="globalscoreone">SAVE SCORE</span>
                 </div>
               </div>
               <div class="sectionPlayer startGame gameScoreFont">
                 <span>GAME SCORE : </span>
-                <span class="gameScore" id="currentscoreplayerone">0</span>
+                <span class="gameScore" id="globalscoreplayerone">0</span>
               </div>
               <div class="sectionPlayer startGame gameWin invisible">
                 <span>YOU WIN !</span>
@@ -126,20 +126,20 @@
               <div class="sectionPlayer startGame currentFont">
                 <div class="currentZone startGame">
                   <span >CURRENT SCORE : </span>
-                  <span class="currentScore" id="currentscoreplayerone">0</span>
+                  <span class="currentScore" id="currentscoreplayertwo">0</span>
                 </div>
               </div>
               <div class="sectionPlayer startGame">
                 <div class="startGame fontSave">
-                  <button class="btnPad">
+                  <button id="savetwo" class="btnPad" onclick="saveScore(id)">
                     <ion-icon class="game" name="arrow-down-circle-outline"></ion-icon>
                   </button>
-                  <span>SAVE SCORE</span>
+                  <span >SAVE SCORE</span>
                 </div>
               </div>
               <div class="sectionPlayer startGame gameScoreFont">
                 <span>GAME SCORE : </span>
-                <span class="gameScore" id="currentscoreplayerone">0</span>
+                <span class="gameScore" id="globalscoreplayertwo">0</span>
               </div>
               <div class="sectionPlayer startGame gameWin invisible">
                 <span>YOU WIN !</span>

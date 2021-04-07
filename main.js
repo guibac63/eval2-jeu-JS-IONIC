@@ -7,6 +7,7 @@ const savePoints = document.getElementsByClassName("fontSave");
 const currentScoreZone = document.getElementsByClassName("currentZone");
 const currentScore = document.getElementsByClassName("currentScore");
 const canvasDraw = document.getElementsByClassName("canvasDice");
+const globalScore = document.getElementsByClassName("gameScore");
 //variables in a table
 const tabstyleElements = [];
 tabstyleElements.push(
@@ -21,9 +22,9 @@ tabstyleElements.push(
 //--------------------------------------------------------------------//
 
 // adjustment when the game starts
-function newgame() {
+function newGame() {
   // reinitialize scores to 0
-  countertozero();
+  counterToZero();
   //display game elements
   appGame.classList.remove("invisible");
 
@@ -32,42 +33,41 @@ function newgame() {
   const secondPlayer = starterPlayer > 0 ? 0 : 1;
 
   //change style for the player zone who is allowed to play
-  applystylenewgame(starterPlayer, secondPlayer, tabstyleElements);
+  applyStyleNewgame(starterPlayer, secondPlayer, tabstyleElements);
 }
 
 // on buttonclick "play" launch round for the selected player
 function play(idActivePlayer) {
   //dice value
   let randomDice = 1 + Math.round(Math.random() * 5);
-  console.log(randomDice);
   //draw the dice of the active player with his value
   drawingDice(randomDice, idActivePlayer);
   //if diceplay = 1 change round
   if (randomDice === 1) {
-    countertozero();
+    counterToZero();
     if (idActivePlayer.includes("one")) {
-      setTimeout(() => applystylenewgame(0, 1, tabstyleElements), 400);
+      setTimeout(() => applyStyleNewgame(0, 1, tabstyleElements), 400);
     } else {
-      setTimeout(() => applystylenewgame(1, 0, tabstyleElements), 400);
+      setTimeout(() => applyStyleNewgame(1, 0, tabstyleElements), 400);
     }
     // else add the value of the dice in the current score of the player
   } else {
     if (idActivePlayer.includes("one")) {
-      displayscore(0, randomDice, 1);
+      displayScore(0, randomDice, 1, currentScore);
     } else {
-      displayscore(1, randomDice, 1);
+      displayScore(1, randomDice, 1, currentScore);
     }
   }
 }
 
-function countertozero() {
+function counterToZero() {
   const score = document.querySelectorAll(".gameScore,.currentScore");
   score.forEach((elt) => {
     elt.innerHTML = "0";
   });
 }
 
-function applystylenewgame(first, second, tabElement) {
+function applyStyleNewgame(first, second, tabElement) {
   tabElement.forEach((elt) => {
     if (elt[first].classList.contains("elementPlayer")) {
       elt[first].classList.remove("borderLine");
@@ -87,19 +87,19 @@ function applystylenewgame(first, second, tabElement) {
   }
 }
 
-function displayscore(activePlayer, randomScore, wayToCount) {
+function displayScore(activePlayer, randomScore, wayToCount, score) {
   const limitScore = randomScore;
   if (wayToCount > 0 && limitScore > 0) {
     setTimeout(() => {
-      currentScore[activePlayer].innerText =
-        parseInt(currentScore[activePlayer].innerText) + 1;
-      displayscore(activePlayer, randomScore - 1, wayToCount);
+      score[activePlayer].innerText =
+        parseInt(score[activePlayer].innerText) + 1;
+      displayScore(activePlayer, randomScore - 1, wayToCount, score);
     }, 100);
   } else if (wayToCount < 0 && randomScore > 0) {
     setTimeout(() => {
-      currentScore[activePlayer].innerText =
-        parseInt(currentScore[activePlayer].innerText) - 1;
-      displayscore(activePlayer, randomScore - 1, wayToCount);
+      score[activePlayer].innerText =
+        parseInt(score[activePlayer].innerText) - 1;
+      displayScore(activePlayer, randomScore - 1, wayToCount, score);
     }, 100);
   }
 }
@@ -121,30 +121,23 @@ function drawingDice(value, idplayer) {
 
   switch (value) {
     case 1:
-      ctx.beginPath();
-      ctx.fillStyle = "rgb(12, 128, 236)";
-      ctx.arc(x * 2, y * 2, 5, 0, 2 * Math.PI);
-      ctx.fill();
+      x = 50;
+      y = 50;
+      draw(x, y, ctx);
       break;
 
     case 2:
       y = 50;
       space = 50;
       for (let i = 0; i < value; i++) {
-        ctx.beginPath();
-        ctx.fillStyle = "rgb(12, 128, 236)";
-        ctx.arc(x, y, 5, 0, 2 * Math.PI);
-        ctx.fill();
+        draw(x, y, ctx);
         x += space;
       }
       break;
 
     case 3:
       for (let i = 0; i < value; i++) {
-        ctx.beginPath();
-        ctx.fillStyle = "rgb(12, 128, 236)";
-        ctx.arc(x, y, 5, 0, 2 * Math.PI);
-        ctx.fill();
+        draw(x, y, ctx);
         x += space;
         y += space;
       }
@@ -153,10 +146,7 @@ function drawingDice(value, idplayer) {
     case 4:
       space = 50;
       for (let i = 0; i < value; i++) {
-        ctx.beginPath();
-        ctx.fillStyle = "rgb(12, 128, 236)";
-        ctx.arc(x, y, 5, 0, 2 * Math.PI);
-        ctx.fill();
+        draw(x, y, ctx);
         if (i === 0) x += space;
         if (i === 1) y += space;
         if (i === 2) x -= space;
@@ -166,10 +156,7 @@ function drawingDice(value, idplayer) {
     case 5:
       space = 50;
       for (let i = 0; i < value; i++) {
-        ctx.beginPath();
-        ctx.fillStyle = "rgb(12, 128, 236)";
-        ctx.arc(x, y, 5, 0, 2 * Math.PI);
-        ctx.fill();
+        draw(x, y, ctx);
         if (i === 0) x += space;
         if (i === 1) y += space;
         if (i === 2) x -= space;
@@ -179,10 +166,7 @@ function drawingDice(value, idplayer) {
 
     default:
       for (let i = 0; i < value; i++) {
-        ctx.beginPath();
-        ctx.fillStyle = "rgb(12, 128, 236)";
-        ctx.arc(x, y, 5, 0, 2 * Math.PI);
-        ctx.fill();
+        draw(x, y, ctx);
         if (i < 2) x += space;
         if (i === 2) {
           y += space * 2;
@@ -190,5 +174,25 @@ function drawingDice(value, idplayer) {
         }
         if (i > 2) x += space;
       }
+  }
+}
+
+function draw(x, y, context) {
+  context.beginPath();
+  context.fillStyle = "rgb(12, 128, 236)";
+  context.arc(x, y, 5, 0, 2 * Math.PI);
+  context.fill();
+}
+
+function saveScore(idActivePlayer) {
+  // decrease the current counter score and increase the saving global scorze
+  if (idActivePlayer.includes("one")) {
+    const currentScoreValue = parseInt(currentScore[0].innerText);
+    displayScore(0, currentScoreValue, -1, currentScore);
+    displayScore(0, currentScoreValue, 1, globalScore);
+  }else{
+    const currentScoreValue = parseInt(currentScore[1].innerText);
+    displayScore(1, currentScoreValue, -1, currentScore);
+    displayScore(1, currentScoreValue, 1, globalScore);
   }
 }
