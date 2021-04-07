@@ -44,12 +44,13 @@ function play(idActivePlayer) {
   drawingDice(randomDice, idActivePlayer);
   //if diceplay = 1 change round
   if (randomDice === 1) {
-    //ATTENTION///CREER FONCTION QUI MET A 0 UNIQUEMENT LE CURRENT SCORE DES DEUX COTES
+
+    //reload current counter to 0
     counterToZero("play");
     if (idActivePlayer.includes("one")) {
-      setTimeout(() => applyStyleNewgame(0, 1, tabstyleElements), 400);
+      setTimeout(() => applyStyleNewgame(0, 1, tabstyleElements), 200);
     } else {
-      setTimeout(() => applyStyleNewgame(1, 0, tabstyleElements), 400);
+      setTimeout(() => applyStyleNewgame(1, 0, tabstyleElements), 200);
     }
     // else add the value of the dice in the current score of the player
   } else {
@@ -96,13 +97,13 @@ function displayScore(activePlayer, randomScore, wayToCount, score) {
       score[activePlayer].innerText =
         parseInt(score[activePlayer].innerText) + 1;
       displayScore(activePlayer, randomScore - 1, wayToCount, score);
-    }, 100);
+    }, 50);
   } else if (wayToCount < 0 && randomScore > 0) {
     setTimeout(() => {
       score[activePlayer].innerText =
         parseInt(score[activePlayer].innerText) - 1;
       displayScore(activePlayer, randomScore - 1, wayToCount, score);
-    }, 100);
+    }, 50);
   }
 }
 
@@ -187,14 +188,41 @@ function draw(x, y, context) {
 }
 
 function saveScore(idActivePlayer) {
-  // decrease the current counter score and increase the saving global scorze
+
+  const allButtons = document.getElementsByTagName("button");
+  let delay 
+  let activePlayer
+  let nextPlayer
+
+
+  // disable all buttons
+  [...allButtons].forEach((elt) => {
+    elt.disabled = "true";
+  });
+  // decrease the current counter score and increase the saving global score
   if (idActivePlayer.includes("one")) {
+    activePlayer = 0
+    nextPlayer = 1
     const currentScoreValue = parseInt(currentScore[0].innerText);
     displayScore(0, currentScoreValue, -1, currentScore);
     displayScore(0, currentScoreValue, 1, globalScore);
+    // count the disable delay
+    delay = 75 * currentScoreValue;
   } else {
+    activePlayer = 1
+    nextPlayer = 0
     const currentScoreValue = parseInt(currentScore[1].innerText);
     displayScore(1, currentScoreValue, -1, currentScore);
     displayScore(1, currentScoreValue, 1, globalScore);
+    // count the disable delay
+    delay = 75 * currentScoreValue;
   }
+
+  //enable buttons after delay
+  setTimeout(()=>{
+    [...allButtons].forEach((elt) => {
+      elt.removeAttribute("disabled");
+    });
+    applyStyleNewgame(activePlayer,nextPlayer,tabstyleElements)
+  },delay) 
 }
