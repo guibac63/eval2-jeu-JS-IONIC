@@ -34,7 +34,7 @@
         <ion-toolbar class="fontFam">
           <ion-title class="fontBold fontFam"
             ><div class="startGame">
-              <button class="btnPad" onclick="newGame()">
+              <button class="btnPad" onclick="colorButton(this);newGame()">
                 <ion-icon class="game" name="add-circle-outline"></ion-icon>
               </button>
               <span>NEW GAME</span>
@@ -62,7 +62,7 @@
               </div>
               <div class="sectionPlay startGame">
                 <div class="startGame fontPlay">
-                  <button id="one" class="btnPad" onclick="play(id)">
+                  <button id="one" class="btnPad" onclick="colorButton(this);play(id)">
                     <ion-icon
                       class="game"
                       name="play-circle-outline"
@@ -80,7 +80,7 @@
               </div>
               <div class="sectionPlayer startGame">
                 <div class="startGame fontSave">
-                  <button id="saveone" class="btnPad" onclick="saveScore(id)">
+                  <button id="saveone" class="btnPad" onclick="colorButton(this);saveScore(id)">
                     <ion-icon class="game" name="arrow-down-circle-outline"></ion-icon>
                   </button>
                   <span id="globalscoreone">SAVE SCORE</span>
@@ -113,7 +113,7 @@
               </div>
               <div class="sectionPlay startGame">
                 <div class="startGame fontPlay">
-                  <button id ="two" class="btnPad" onclick="play(id)">
+                  <button id ="two" class="btnPad" onclick="colorButton(this);play(id)">
                     <ion-icon
                       class="game"
                       name="play-circle-outline"
@@ -131,7 +131,7 @@
               </div>
               <div class="sectionPlayer startGame">
                 <div class="startGame fontSave">
-                  <button id="savetwo" class="btnPad" onclick="saveScore(id)">
+                  <button id="savetwo" class="btnPad" onclick="colorButton(this);saveScore(id)">
                     <ion-icon class="game" name="arrow-down-circle-outline"></ion-icon>
                   </button>
                   <span >SAVE SCORE</span>
