@@ -32,12 +32,19 @@
     <ion-app class="sizeGame">
       <ion-header>
         <ion-toolbar class="fontFam">
-          <ion-title class="fontBold fontFam"
-            ><div class="startGame">
+          <ion-title class="fontBold fontFam info"
+            > 
+            <div class="startGame">
               <button class="btnPad" onclick="colorButton(this);newGame()">
                 <ion-icon class="game" name="add-circle-outline"></ion-icon>
               </button>
               <span>NEW GAME</span>
+              <div class="startGame gameRules">
+                <button class="btnPad" onclick="">
+                  <ion-icon class="game" name="information-circle-outline"></ion-icon>
+                </button>
+                <span>Game rules</span>
+              </div>
             </div>
           </ion-title>
         </ion-toolbar>

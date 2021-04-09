@@ -87,6 +87,27 @@ ion-icon.game {
   color: rgb(12, 128, 236);
 }
 
+/* partie infos règles du jeu */
+.info{
+  position: relative;
+}
+
+.gameRules{
+  position: absolute;
+  top: 2px;
+  right: 0.7rem;
+  font-size: 1.5rem;
+  color: rgb(12, 128, 236);
+}
+
+.gameRules>button>ion-icon{
+  font-size: 2.5rem;
+}
+
+.gameRules>button>ion-icon:hover{
+  color:rgb(43, 226, 141);
+}
+
 /* style du bloc player */
 .fontPlayer {
   font-size: 2.5rem;
