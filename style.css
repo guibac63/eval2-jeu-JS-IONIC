@@ -1,7 +1,7 @@
 /* general style of the game */
 
 html {
-  font-size: 7px;
+  font-size: 6px;
 }
 
 .fontFam {
@@ -19,7 +19,7 @@ html {
 }
 
 .sizePlayer {
-  height: 45vh;
+  height: 42vh;
 }
 
 .startGame {
@@ -64,10 +64,9 @@ button {
   display: none;
 }
 
-.blur{
+.blur {
   filter: blur(20px);
 }
-
 
 /* specific style for the new game block (header) */
 
@@ -77,11 +76,11 @@ ion-icon.game {
 }
 
 /* game rules style */
-.info{
+.info {
   position: relative;
 }
 
-.gameRules{
+.gameRules {
   position: absolute;
   top: 2px;
   right: 0.7rem;
@@ -89,16 +88,16 @@ ion-icon.game {
   color: rgb(12, 128, 236);
 }
 
-.gameRules>button>ion-icon{
+.gameRules > button > ion-icon {
   font-size: 2.5rem;
 }
 
-.gameRules>button>ion-icon:hover{
-  color:rgb(43, 226, 141);
+.gameRules > button > ion-icon:hover {
+  color: rgb(43, 226, 141);
 }
 
 /* modal style when click on the onfo button */
-.gameModal{
+.gameModal {
   z-index: 100;
   position: fixed;
   top: 20%;
@@ -111,27 +110,27 @@ ion-icon.game {
   background-color: white;
 }
 
-.gameModal>h1{
+.gameModal > h1 {
   width: 60%;
-  margin:auto;
+  margin: auto;
   text-align: center;
   font-size: 2.2rem;
   margin-top: 25px;
 }
 
-.gameModal>hr{
+.gameModal > hr {
   height: 0.3rem;
   background-color: rgb(12, 128, 236);
   width: 13%;
 }
 
-.gameModal>button>ion-icon{
+.gameModal > button > ion-icon {
   position: absolute;
   right: 0.8rem;
   top: 0.8rem;
 }
 
-.fontRules{
+.fontRules {
   font-size: 1.8rem;
   margin: 2rem;
 }
@@ -205,18 +204,18 @@ ion-icon.playerIcon {
   margin-left: 1rem;
 }
 
-.animationCup{
+.animationCup {
   animation-duration: 500ms;
   animation-name: pumping;
   animation-iteration-count: infinite;
-  animation-direction: alternate;  ;
+  animation-direction: alternate;
 }
 
 @keyframes pumping {
   from {
     transform: scale(1);
   }
-  to{
+  to {
     transform: scale(1.15);
   }
 }
@@ -224,12 +223,12 @@ ion-icon.playerIcon {
 /* canvas configuration (dice draw) with mobile adaptation - bigger to smaller */
 @media screen and (max-width: 1024px) {
   canvas {
-    height: 41px;
-    width: 41px;
+    height: 29px;
+    width: 29px;
   }
 }
 
-@media screen and ( min-width: 1025px) and ( max-width: 1400px) {
+@media screen and (min-width: 1025px) and (max-width: 1400px) {
   canvas {
     height: 71px;
     width: 71px;
@@ -240,23 +239,27 @@ ion-icon.playerIcon {
   .sizePlayer {
     height: 50vh;
   }
+
+  .fontRules {
+    font-size: 1.3rem;
+    margin: 1.5rem;
+  }
 }
 
 /*when the app turn to small size device the players blocks take the major part of the height */
 @media screen and (min-width: 568px) {
   .sizePlayer {
-    height: 78vh;
+    height: 87vh;
   }
 }
 
 /* when the app turn to large size device font and image adjustment*/
 @media screen and (min-width: 1024px) {
   html {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .imageCup {
     width: 60px;
   }
-
 }
