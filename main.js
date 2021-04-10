@@ -303,7 +303,7 @@ function gameRules(idButton) {
 
   if (idButton === "displayRules") {
     modalRules.classList.remove("invisible");
-    fadeIn(modalRules)
+    fadeIn(modalRules);
     toolbar.classList.add("blur");
     appContent.classList.add("blur");
   } else {
@@ -320,9 +320,9 @@ function fadeIn(el){
 
   (function fade() {
     var val = parseFloat(el.style.opacity);
-    if (((val += .04) < 1)) {
+    if (((val += 0.03) < 1)) {
       el.style.opacity = val;
       requestAnimationFrame(fade);
     }
   })();
-};
+}
