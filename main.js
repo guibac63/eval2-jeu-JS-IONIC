@@ -10,7 +10,8 @@ const canvasDraw = document.getElementsByClassName("canvasDice");
 const globalScore = document.getElementsByClassName("gameScore");
 const gameWin = document.getElementsByClassName("gameWin");
 let endGame;
-//style variables in a table
+
+//style variables in a table for the turn by turn play
 const tabstyleElements = [];
 tabstyleElements.push(
   playerZone,
@@ -82,6 +83,7 @@ function counterToZero(type) {
 
 function applyStyleNewgame(first, second, tabElement) {
   if (endGame === false) {
+    // display and hide different css effects for playing turn by turn
     tabElement.forEach((elt) => {
       if (elt[first].classList.contains("elementPlayer")) {
         elt[first].classList.remove("borderLine");
@@ -89,7 +91,7 @@ function applyStyleNewgame(first, second, tabElement) {
         elt[second].classList.add("borderLine");
       } else if (elt[first].classList.contains("gameWin")) {
         elt[first].classList.add("invisible");
-        elt[second].classList.add("invisible")
+        elt[second].classList.add("invisible");
       } else {
         elt[first].classList.remove("invisible");
         elt[second].classList.remove("invisible");
@@ -118,6 +120,7 @@ function displayScore(activePlayer, randomScore, wayToCount, score) {
     return false;
   }
 
+  // display the selected score with a decrease or increase effect step one by one
   if (wayToCount > 0 && limitScore > 0) {
     setTimeout(() => {
       score[activePlayer].innerText =
@@ -225,7 +228,7 @@ function saveScore(idActivePlayer) {
   let activePlayer;
   let nextPlayer;
 
-  // disable all buttons
+  // disable all buttons click
   [...allButtons].forEach((elt) => {
     elt.disabled = "true";
   });
@@ -248,7 +251,7 @@ function saveScore(idActivePlayer) {
     delay = 70 * currentScoreValue;
   }
 
-  //enable buttons after delay
+  //enable buttons click after delay
   setTimeout(() => {
     [...allButtons].forEach((elt) => {
       elt.removeAttribute("disabled");
@@ -276,17 +279,50 @@ function colorButton(thisElement) {
 
 // stop the game and give the trophy for the winner
 function win(activePlayer) {
-  
   if (activePlayer.includes("one")) {
     //target the image of the cup
-    const cup = gameWin[0].childNodes[3].childNodes[0]
-    console.log(cup)
+    const cup = gameWin[0].childNodes[3].childNodes[0];
+    console.log(cup);
     gameWin[0].classList.remove("invisible");
     cup.classList.add("animationCup");
   } else {
     //target the image of the cup
     const cup = gameWin[1].childNodes[3];
     gameWin[1].classList.remove("invisible");
-    cup.classList.add("animationCup")
+    cup.classList.add("animationCup");
   }
 }
+
+//------------------------------------------------//
+
+// function who create blur in the background and display the modal of the game rules
+function gameRules(idButton) {
+  const modalRules = document.querySelector(".gameModal");
+  const toolbar = document.querySelector("ion-toolbar");
+  const appContent = document.querySelector("ion-content");
+
+  if (idButton === "displayRules") {
+    modalRules.classList.remove("invisible");
+    fadeIn(modalRules)
+    toolbar.classList.add("blur");
+    appContent.classList.add("blur");
+  } else {
+    modalRules.classList.add("invisible");
+    toolbar.classList.remove("blur");
+    appContent.classList.remove("blur");
+  }
+}
+
+//display with a fade and slow movement the modal
+function fadeIn(el){
+
+  el.style.opacity = 0;
+
+  (function fade() {
+    var val = parseFloat(el.style.opacity);
+    if (((val += .04) < 1)) {
+      el.style.opacity = val;
+      requestAnimationFrame(fade);
+    }
+  })();
+};

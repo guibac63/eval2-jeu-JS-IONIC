@@ -28,8 +28,23 @@
     <link rel="stylesheet" href="./style.css" />
     <title>Jeu de dé</title>
   </head>
-  <body>
+  <body>  
     <ion-app class="sizeGame">
+      <!-- modal game rules hidden by default -->
+      <div class="gameModal fontFam invisible">
+        <h1 class ="fontBold">GAME RULES</h1>
+        <hr>
+         <button id="closeRules" class="btnPad" onclick="gameRules(id)">
+          <ion-icon class="game" name="close-circle-outline"></ion-icon>
+         </button>
+         <div class="fontRules">
+           <p class="fontBold">The active player can launch the dice as many times as he want but :</p>
+           <p class="fontBold">- if he choose to save his score, his current score dump into his global score and this is the next player's turn</p>
+           <p class="fontBold">- if the dice value is "1", his current score is lost and this is the next player's turn</p>
+           <p class="fontBold">The winner is the first player with a global score of 100</p>
+         </div>
+      </div>
+      <!-- game block to launch a new game round -->
       <ion-header>
         <ion-toolbar class="fontFam">
           <ion-title class="fontBold fontFam info"
@@ -40,7 +55,7 @@
               </button>
               <span>NEW GAME</span>
               <div class="startGame gameRules">
-                <button class="btnPad" onclick="">
+                <button id="displayRules" class="btnPad" onclick="gameRules(id)">
                   <ion-icon class="game" name="information-circle-outline"></ion-icon>
                 </button>
                 <span>Game rules</span>
@@ -49,9 +64,11 @@
           </ion-title>
         </ion-toolbar>
       </ion-header>
+      <!-- main part with the 2 players block -->
       <ion-content class="ion-padding fontFam fontBold">
         <ion-grid class="invisible">
           <ion-row>
+            <!-- player 1 block -->
             <ion-col
               class="sizePlayer elementPlayer"
               size="12"
@@ -97,11 +114,13 @@
                 <span>GAME SCORE : </span>
                 <span class="gameScore" id="globalscoreplayerone">0</span>
               </div>
+              <!-- winning part hidden by default -->
               <div class="sectionPlayer startGame gameWin invisible">
                 <span>YOU WIN !</span>
                 <div class="imageCup"><img src="./images/cup-2015198_640.png" alt="image d'un trophée"></div>
               </div>
             </ion-col>
+            <!-- player 2 block -->
             <ion-col
               class="sizePlayer elementPlayer"
               size="12"
@@ -148,6 +167,7 @@
                 <span>GAME SCORE : </span>
                 <span class="gameScore" id="globalscoreplayertwo">0</span>
               </div>
+              <!-- winning part hidden by default -->
               <div class="sectionPlayer startGame gameWin invisible">
                 <span>YOU WIN !</span>
                 <div class="imageCup"><img src="./images/cup-2015198_640.png" alt="image d'un trophée"></div>

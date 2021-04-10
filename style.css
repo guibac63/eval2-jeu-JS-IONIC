@@ -1,4 +1,4 @@
-/* style général du jeu */
+/* general style of the game */
 
 html {
   font-size: 7px;
@@ -64,30 +64,19 @@ button {
   display: none;
 }
 
-.animationCup{
-  animation-duration: 500ms;
-  animation-name: pumping;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;  ;
+.blur{
+  filter: blur(20px);
 }
 
-@keyframes pumping {
-  from {
-    transform: scale(1);
-  }
-  to{
-    transform: scale(1.15);
-  }
-}
 
-/* style du bloc new game */
+/* specific style for the new game block (header) */
 
 ion-icon.game {
   font-size: 3rem;
   color: rgb(12, 128, 236);
 }
 
-/* partie infos règles du jeu */
+/* game rules style */
 .info{
   position: relative;
 }
@@ -108,7 +97,46 @@ ion-icon.game {
   color:rgb(43, 226, 141);
 }
 
-/* style du bloc player */
+/* modal style when click on the onfo button */
+.gameModal{
+  z-index: 100;
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 0.6rem solid rgb(12, 128, 236);
+  width: 60%;
+  height: 70%;
+  opacity: 1;
+  background-color: white;
+}
+
+.gameModal>h1{
+  width: 60%;
+  margin:auto;
+  text-align: center;
+  font-size: 2.2rem;
+  margin-top: 25px;
+}
+
+.gameModal>hr{
+  height: 0.3rem;
+  background-color: rgb(12, 128, 236);
+  width: 13%;
+}
+
+.gameModal>button>ion-icon{
+  position: absolute;
+  right: 0.8rem;
+  top: 0.8rem;
+}
+
+.fontRules{
+  font-size: 1.8rem;
+  margin: 2rem;
+}
+
+/* specific style for the player block */
 .fontPlayer {
   font-size: 2.5rem;
 }
@@ -177,7 +205,23 @@ ion-icon.playerIcon {
   margin-left: 1rem;
 }
 
-/* configuration du canvas avec dessin du dé pour adaptation mobile du grand format -sens de grand vers petit */
+.animationCup{
+  animation-duration: 500ms;
+  animation-name: pumping;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;  ;
+}
+
+@keyframes pumping {
+  from {
+    transform: scale(1);
+  }
+  to{
+    transform: scale(1.15);
+  }
+}
+
+/* canvas configuration (dice draw) with mobile adaptation - bigger to smaller */
 @media screen and (max-width: 1024px) {
   canvas {
     height: 41px;
@@ -198,14 +242,14 @@ ion-icon.playerIcon {
   }
 }
 
-/* passage à la taille small, chaque zone de chaque player prend une majeure partie de la hauteur */
+/*when the app turn to small size device the players blocks take the major part of the height */
 @media screen and (min-width: 568px) {
   .sizePlayer {
     height: 78vh;
   }
 }
 
-/* passage à la taille small, chaque zone de chaque player prend une majeure partie de la hauteur */
+/* when the app turn to large size device font and image adjustment*/
 @media screen and (min-width: 1024px) {
   html {
     font-size: 13px;
