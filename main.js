@@ -1,4 +1,5 @@
 // variables declaration
+const game = document.querySelector("ion-content")
 const appGame = document.querySelector("ion-grid");
 const playerZone = document.getElementsByClassName("elementPlayer");
 const roundPatch = document.getElementsByClassName("playerTurn");
@@ -31,8 +32,11 @@ function newGame() {
   endGame = false;
   // reinitialize scores to 0
   counterToZero("start");
+  //hide the game for a later progressive display
+  game.style.opacity = 0
   //display game elements
   appGame.classList.remove("invisible");
+  fadeIn(appGame)
 
   //random definition of first turn player
   const starterPlayer = Math.round(Math.random());
@@ -40,6 +44,10 @@ function newGame() {
 
   //change style for the player zone who is allowed to play
   applyStyleNewgame(starterPlayer, secondPlayer, tabstyleElements);
+
+  //display slowly the elements of the new game
+  fadeIn(game)
+
 }
 
 //---------------------------------------------------------------//
@@ -320,7 +328,7 @@ function fadeIn(el){
 
   (function fade() {
     var val = parseFloat(el.style.opacity);
-    if (((val += 0.03) < 1)) {
+    if (((val += 0.04) < 1)) {
       el.style.opacity = val;
       requestAnimationFrame(fade);
     }
